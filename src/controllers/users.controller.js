@@ -9,10 +9,10 @@ const getAll = async (req, res, next) => {
         next(error);
     };
 };
-const getActor = async (req, res, next) => {
+const getUser = async (req, res, next) => {
     try{
         let id = req.params.id;
-        const result = await Users.findByPk({raw:true},{where: {id:id}});
+        const result = await Users.findByPk(id,{raw:true});
         res.json(result);
     }catch(error){
         next(error);
@@ -60,7 +60,7 @@ const remove = async (req, res, next) => {
 
 module.exports = {
     getAll,
-    getActor,
+    getUser,
     create,
     update,
     remove

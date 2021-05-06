@@ -12,7 +12,7 @@ const getAll = async (req, res, next) => {
 const getDirector = async (req, res, next) => {
     try{
         let id = req.params.id;
-        const results = await Directors.findByPk({raw:true},{where:{id:id}});
+        const results = await Directors.findByPk(id,{raw:true});
         res.json(results);
     }catch(error){
         next(error);
