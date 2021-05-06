@@ -5,7 +5,15 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class Contents extends Model {
     static associate(models) {
-      // define association here
+      this.hasMany(models.ContentGenres,{
+        foreignKey:'content_id'
+      })
+      this.hasMany(models.ContentActors,{
+        foreignKey:'content_id'
+      });
+      this.hasMany(models.ContentDirectors,{
+        foreignKey:'content_id'
+      });
     }
   };
   Contents.init({

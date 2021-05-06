@@ -4,13 +4,17 @@ module.exports = {
     await queryInterface.createTable('content_genres', {
       genre_id: {
         type: Sequelize.INTEGER,
-        autoIncrement: true,
-        primaryKey: true,
+        references:{
+          model:'genres',
+          key:'id'
+        }
       },
       content_id: {
         type: Sequelize.INTEGER,
-        autoIncrement: true,
-        primaryKey: true,
+        references:{
+          model:'contents',
+          key:'id'
+        }
       },
       active: {
         type: Sequelize.BOOLEAN

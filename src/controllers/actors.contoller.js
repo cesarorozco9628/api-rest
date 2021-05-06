@@ -20,7 +20,10 @@ const getActor = async (req, res, next) => {
 
 const create = async (req, res, next) => {
     try{
-        let actors = await Actors.create(req.body);
+        let {first_name,last_name,dob,biography,profile_photo,active} = req.body;
+        let actors = await Actors.create({
+            first_name,last_name,dob,biography,profile_photo,active
+        });
         res.json(actors);
     }catch(error){
         next(error);
