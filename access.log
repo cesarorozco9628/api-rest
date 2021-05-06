@@ -1,0 +1,5 @@
+::1 - - [05/May/2021:19:53:22 +0000] "GET / HTTP/1.1" 200 24 "-" "PostmanRuntime/7.26.10"
+::1 - - [05/May/2021:19:56:54 +0000] "GET /api/v1/actors HTTP/1.1" 500 66 "-" "PostmanRuntime/7.26.10"
+::1 - - [05/May/2021:20:03:03 +0000] "GET /api/v1/actors HTTP/1.1" 200 426 "-" "PostmanRuntime/7.26.10"
+::1 - - [05/May/2021:20:03:42 +0000] "GET /api/v1/directors HTTP/1.1" 200 2 "-" "PostmanRuntime/7.26.10"
+::1 - - [05/May/2021:22:09:05 +0000] "GET /api/v1/actors HTTP/1.1" 200 426 "-" "PostmanRuntime/7.26.10"
