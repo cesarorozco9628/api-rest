@@ -149,6 +149,73 @@
                     }
                 }
             }
+        },
+        "/users":{
+            "get":{
+                "description": "Obtener todos los usuarios de la DB",
+                "tags": ["Users"],
+                "responses": {
+                    "200":{
+                        "description": "Lista de usuarios"
+                    }
+                }
+            },
+            "post":{
+                "description": "Crear un usuario",
+                "tags": ["Users"],
+                "requestBody":{
+                    "content": {
+                        "application/json":{
+                            "schema":{
+                                "$ref": "#/components/schemas/Users"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Se ha creado un usuario satisfactoriamente"
+                    }
+                }
+            }
+        },
+        "/users/{id}":{
+            "put":{
+                "description": "Modificar un usuario",
+                "tags":["Users"],
+                "requestBody":{
+                    "content": {
+                        "aplication/json":{
+                            "schema":{
+                                "$ref":"#/components/schemas/Users"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "202":{
+                        "description": "Se ha modificado un usuario satisfactoriamente"
+                    }
+                }
+            },
+            "delete":{
+                "description": "Eliminar un usuario",
+                "tags":["Users"],
+                "requestBody":{
+                    "content": {
+                        "aplication/json":{
+                            "schema":{
+                                "$ref":"#/components/schemas/Users"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "202":{
+                        "description": "Se ha eliminado un usuario satisfactoriamente"
+                    }
+                }
+            }
         }
     },
     "components": {
@@ -201,6 +268,28 @@
                         "example": "https://apihandyman.io/images/commons/openapi/openapi-map.png"
                     },
                     "active": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "Users":{
+                "properties": {
+                    "first_name":{
+                        "type": "string"
+                    },
+                    "last_name":{
+                        "type": "string"
+                    },
+                    "email":{
+                        "type":"string"
+                    },
+                    "password":{
+                        "type": "string"
+                    },
+                    "reset_token":{
+                        "type": "string"
+                    },
+                    "active":{
                         "type": "boolean"
                     }
                 }

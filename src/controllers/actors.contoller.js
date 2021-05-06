@@ -11,7 +11,7 @@ const getAll = async (req, res, next) => {
 const getActor = async (req, res, next) => {
     try{
         let id = req.params.id;
-        const result = await Actors.findByPk({raw:true},{where: {id:id}});
+        const result = await Actors.findByPk(id,{raw:true});
         res.json(result);
     }catch(error){
         next(error);

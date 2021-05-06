@@ -9,6 +9,16 @@ const getAll = async (req, res, next) => {
     }
 }
 
+const getDirector = async (req, res, next) => {
+    try{
+        let id = req.params.id;
+        const results = await Directors.findByPk({raw:true},{where:{id:id}});
+        res.json(results);
+    }catch(error){
+        next(error);
+    }
+}
+
 const create = async (req, res, next) => {
     try{
         let directors = await Directors.create(req.body);
@@ -40,6 +50,7 @@ const remove = async (req, res, next) => {
 
 module.exports = {
     getAll,
+    getDirector,
     create,
     update,
     remove
