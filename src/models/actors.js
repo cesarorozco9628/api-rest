@@ -5,9 +5,9 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class Actors extends Model {
     static associate(models) {
-      this.belongsTo(models.ContentActors,{
-        foreignKey: 'actor_id'
-      });
+      // this.belongsTo(models.ContentActors,{
+      //   foreignKey: 'actor_id'
+      // });
     }
   };
   Actors.init({

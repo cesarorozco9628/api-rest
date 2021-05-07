@@ -13,7 +13,7 @@ const usersRoutes = require('./routes/users.routes');
 
 //Middleware
  app.use(helmet());
-//  app.use(cors());
+ app.use(cors());
  app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
  app.use(logger('combined', {stream: fs.createWriteStream('./access.log', {flags: 'a'})}));
  app.use(express.json());

@@ -4,6 +4,8 @@ module.exports = {
     await queryInterface.createTable('content_directors', {
       director_id: {
         type: Sequelize.INTEGER,
+        autoIncrement:true,
+        primaryKey:true,
         references:{
           model:'directors',
           key:'id'
@@ -11,6 +13,8 @@ module.exports = {
       },
       content_id: {
         type: Sequelize.INTEGER,
+        autoIncrement:true,
+        primaryKey:true,
         references:{
           model:'contents',
           key:'id'

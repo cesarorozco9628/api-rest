@@ -5,12 +5,6 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class ContentActors extends Model {
     static associate(models) {
-      this.hasMany(models.Actors,{
-        foreignKey:'actor_id'
-      });
-      this.belongsTo(models.Contents,{
-        foreignKey:'content_id'
-      });
     }
   };
   ContentActors.init({
