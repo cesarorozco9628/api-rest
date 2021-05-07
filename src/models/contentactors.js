@@ -5,6 +5,12 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class ContentActors extends Model {
     static associate(models) {
+      this.hasMany(models.Actors,{
+        foreignKey:'id'
+      })
+      this.hasOne(models.Contents,{
+        foreignKey:'id'
+      })
     }
   };
   ContentActors.init({

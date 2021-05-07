@@ -5,7 +5,9 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class Directors extends Model {
     static associate(models) {
-      
+      this.hasOne(models.ContentDirectors,{
+        foreignKey: 'director_id'
+      });
     }
   };
   Directors.init({

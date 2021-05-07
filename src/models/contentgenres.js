@@ -5,7 +5,12 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class ContentGenres extends Model {
     static associate(models) {
-    
+    this.hasOne(models.Contents,{
+      foreignKey:'id'
+    });
+    this.hasMany(models.Genres,{
+      foreignKey:'id'
+    })
     }
   };
   ContentGenres.init({
