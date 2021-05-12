@@ -8,22 +8,23 @@ const {dotenv} =  require('dotenv').config();
 
 const getToken = async(req, res, next) => {
     const { password } = req.body;
+    // let pass = bcryptjs.hash(password,8);
     let user = await Users.findOne({
       where:{
         email: req.body.email
       }
     },{raw:true});
-    // console.log(user, password);
+    console.log(user);
    try {
-    if (await bcryptjs.compare(password,user.password)) {
-      const token = jwt.sign(user, process.env.JWT_KEY, {
+    if (await bcryptjs.compare(password, user.password)) {
+      const token = jwt.sign(user.dataValues.id, process.env.JWT_KEY, {
         algorithm: "HS512",
-        expiresIn: "1h"
+        // expiresIn: "1h"
       });
       res.json({ token });
     }
   } catch (error) {
-    next(error);
+    console.log(error.message)
   }
 }
 
