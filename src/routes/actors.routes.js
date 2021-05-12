@@ -5,11 +5,11 @@ const {verifyToken} = require('../controllers/login.controller')
 
 ///////////////////////Endpoints/////////////////
 
-route.get("/actors", getAll);
-route.get("/actors/:id", getActor); 
-route.post("/actors", create);
-route.put("/actors/:id/profile", updateProfile);
-route.put("/actors/:id", update);
-route.delete("/actors/:id", remove);
+route.get("/actors", verifyToken ,getAll);
+route.get("/actors/:id",verifyToken, getActor); 
+route.post("/actors", verifyToken, create);
+route.put("/actors/:id/profile",verifyToken, updateProfile);
+route.put("/actors/:id", verifyToken,update);
+route.delete("/actors/:id", verifyToken, remove);
 
 module.exports = route;
