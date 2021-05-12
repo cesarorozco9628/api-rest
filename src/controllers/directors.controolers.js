@@ -38,6 +38,17 @@ const update = async (req, res, next) => {
     }
 }
 
+const updateProfile = async (req, res, next) => {
+    try{
+        let id = req.params.id;
+        let profile_photo = req.body.profile_photo;
+        let actorObj = await Directors.update({profile_photo:profile_photo},{where:{id:id}});
+        res.json(actorObj);
+    }catch(error){
+      next(error);
+    }
+}
+
 const remove = async (req, res, next) => {
     try{
         let directorsId = Number(req.params.id);
@@ -53,5 +64,6 @@ module.exports = {
     getDirector,
     create,
     update,
+    updateProfile,
     remove
 }

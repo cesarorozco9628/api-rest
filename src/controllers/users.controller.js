@@ -21,9 +21,9 @@ const getUser = async (req, res, next) => {
 
 const create = async (req, res, next) => {
     try{
-        let {first_name,last_name,email,password,reset_token} = req.body;
-        password = await bcrypt.hashSync(password,8);
-        let users = await Users.create({first_name,last_name,email,password,reset_token});
+        let {password} = req.body;
+        password = await bcrypt.hash(password,8);
+        let users = await Users.create({...req.body, password});
         res.json(users);
     }catch(error){
         next(error);
@@ -32,16 +32,10 @@ const create = async (req, res, next) => {
 
 const update = async (req, res, next) => {
     try{
-        let {first_name,last_name,email,password,reset_token} = req.body;
-        let hash = await bcrypt.hashSync(password,8);
-        let usersId = Number(req.params.id);
-        let usersObj = await Users.update({
-            first_name:first_name,
-            last_name: last_name,
-            email:email,
-            password: hash,
-            reset_token:reset_token
-        }, {where: {id: usersId}});
+        let {password} = req.body;
+        let hash = await bcrypt.hash(password,8);
+        let usersId = req.params.id;
+        let usersObj = await Users.update({...req.body,password:hash}, {where: {id: usersId}},{raw:true});
         res.json(usersObj);
     }catch(error){
         next(error);

@@ -20,10 +20,7 @@ const getActor = async (req, res, next) => {
 
 const create = async (req, res, next) => {
     try{
-        let {first_name,last_name,dob,biography,profile_photo,active} = req.body;
-        let actors = await Actors.create({
-            first_name,last_name,dob,biography,profile_photo,active
-        });
+        let actors = await Actors.create(req.body);
         res.json(actors);
     }catch(error){
         next(error);
@@ -33,7 +30,18 @@ const create = async (req, res, next) => {
 const update = async (req, res, next) => {
     try{
         let actorId = Number(req.params.id);
-        let actorObj = await Actors.update(req.body, {where: {id: actorId}})
+        let actorObj = await Actors.update(req.body, {where: {id: actorId}});
+        res.json(actorObj);
+    }catch(error){
+        next(error);
+    }
+}
+
+const updateProfile = async (req, res, next) => {
+    try{
+        let id = req.params.id;
+        let profile_photo = req.body.profile_photo;
+        let actorObj = await Actors.update({profile_photo:profile_photo},{where:{id:id}});
         res.json(actorObj);
     }catch(error){
         next(error);
@@ -53,6 +61,7 @@ const remove = async (req, res, next) => {
 module.exports = {
     getAll,
     getActor,
+    updateProfile,
     create,
     update,
     remove

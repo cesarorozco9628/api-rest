@@ -222,10 +222,10 @@
         "schemas": {
             "Actor":{
                 "properties": {
-                    "firstname": {
+                    "first_name": {
                         "type": "string"                        
                     },
-                    "lastname": {
+                    "last_name": {
                         "type": "string"
                     },
                     "dob": {
@@ -248,10 +248,10 @@
             },
             "Director":{
                 "properties": {
-                    "firstname": {
+                    "first_name": {
                         "type": "string"                        
                     },
-                    "lastname": {
+                    "last_name": {
                         "type": "string"
                     },
                     "dob": {
@@ -275,22 +275,28 @@
             "Users":{
                 "properties": {
                     "first_name":{
-                        "type": "string"
+                        "type": "string",
+                        "example":"cesar"
                     },
                     "last_name":{
-                        "type": "string"
+                        "type": "string",
+                        "example":"orozco"
                     },
                     "email":{
-                        "type":"string"
+                        "type":"string",
+                        "example":"cesolk@gmail.com"
                     },
                     "password":{
-                        "type": "string"
+                        "type": "string",
+                        "example":"159753"
                     },
                     "reset_token":{
-                        "type": "string"
+                        "type": "string",
+                        "example":"ehoeverveoas$vndj"
                     },
                     "active":{
-                        "type": "boolean"
+                        "type": "boolean",
+                        "example":true
                     }
                 }
             }
