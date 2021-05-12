@@ -11,14 +11,15 @@ const getToken = async(req, res, next) => {
     let user = await Users.findOne({
       where:{
         email: req.body.email
-      }
-    },{raw:true});
+      },
+      raw:true
+    });
     console.log(user);
    try {
     if (await bcryptjs.compare(password, user.password)) {
-      const token = jwt.sign(user.dataValues.id, process.env.JWT_KEY, {
+      const token = jwt.sign(user, process.env.JWT_KEY, {
         algorithm: "HS512",
-        // expiresIn: "1h"
+        expiresIn: "7d"
       });
       res.json({ token });
     }
