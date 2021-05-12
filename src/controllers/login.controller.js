@@ -8,7 +8,6 @@ const {dotenv} =  require('dotenv').config();
 
 const getToken = async(req, res, next) => {
     const { password } = req.body;
-    // let pass = bcryptjs.hash(password,8);
     let user = await Users.findOne({
       where:{
         email: req.body.email

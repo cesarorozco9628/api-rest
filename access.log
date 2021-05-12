@@ -74,3 +74,4 @@
 ::1 - - [12/May/2021:02:36:06 +0000] "POST /api/v1/login HTTP/1.1" 500 16 "-" "PostmanRuntime/7.28.0"
 ::1 - - [12/May/2021:02:39:26 +0000] "POST /api/v1/login HTTP/1.1" - - "-" "PostmanRuntime/7.28.0"
 ::1 - - [12/May/2021:02:39:29 +0000] "POST /api/v1/login HTTP/1.1" - - "-" "PostmanRuntime/7.28.0"
+::1 - - [12/May/2021:02:43:38 +0000] "POST /api/v1/login HTTP/1.1" 200 122 "-" "PostmanRuntime/7.28.0"
